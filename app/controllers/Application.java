@@ -12,9 +12,25 @@ import models.*;
 
 public class Application extends Controller {
 
+    @Before
+    static void globals() {
+        renderArgs.put("connected", connectedUser());
+    }
+	
     public static void index() {
         render();
     }
+    
+    // Utils
+    static void connect(User user) {
+        session.put("logged", user.id);
+    }
+
+    public static User connectedUser() {
+        String userId = session.get("logged");
+        return userId == null ? null : (User) User.findById(Long.parseLong(userId));
+    }
+
     
     public static class MD5Util {    
 	    public static String hex(byte[] array) {
