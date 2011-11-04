@@ -2,9 +2,40 @@
 <classpath>
 	<classpathentry excluding="views/**" kind="src" path="app"/>
 	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="siena-2.0.5"/>
+	<classpathentry kind="src" path="gae-1.4"/>
 	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/play/framework/play-1.2.3.jar" sourcepath="/Users/mnml/Dropbox/play/framework/src" />
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/commons-beanutils-core-1.7.0.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/commons-betwixt-0.8.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/commons-dbcp-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/commons-pool-1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/isorelax-20020414.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/msv-20020414.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/relaxngDatatype-20020414.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/saxpath-1.0-FCS.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/siena-2.0.5/lib/DdlUtils-1.0-siena-patched.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/siena-2.0.5/lib/play-siena.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/siena-2.0.5/lib/siena-1.0.0-b6.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/appengine-api-1.0-sdk-1.4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/appengine-api-labs-1.4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/appengine-jsr107cache-1.4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/appengine-tools-api.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/geronimo-jta_1.1_spec-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/jsr107cache-1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/play-gae.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/provided-appengine-agent.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/provided-appengine-agentimpl.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/provided-appengine-agentruntime.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/provided-appengine-api-labs.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/provided-appengine-api-stubs.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/provided-appengine-api.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/provided-appengine-local-runtime.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/modules/gae-1.4/lib/provided-appengine-testing.jar"/>
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/play/framework/lib/activation-1.1.1.jar"/>
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/play/framework/lib/antlr-2.7.6.jar"/>
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/play/framework/lib/asm-all-3.3.1.jar"/>
