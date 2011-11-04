@@ -18,50 +18,9 @@
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
         <script src="@{'/public/javascripts/script.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 		<script type="text/javascript">
-
-		var previousPosition = null;
-	
-		function initialize() {
-			map = new google.maps.Map(document.getElementById("map_canvas"), {
-			      zoom: 10,
-			      center: new google.maps.LatLng(48.000000, 2.347198),
-				  disableDefaultUI: true,
-			      mapTypeId: google.maps.MapTypeId.ROADMAP
-			    });		
-		}
-		  
-		if (navigator.geolocation)
-			var watchId = navigator.geolocation.watchPosition(successCallback,
-																null,
-																{enableHighAccuracy:true});
-		else
-			alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
-			
-		function successCallback(position){
-			map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-			var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
-				map: map
-			});  
-			if (previousPosition){
-				var newLineCoordinates = [
-											 new google.maps.LatLng(previousPosition.coords.latitude, previousPosition.coords.longitude),
-											 new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-										   ];
-				
-				var newLine = new google.maps.Polyline({
-					path: newLineCoordinates,	       
-					strokeColor: "#FF0000",
-					strokeOpacity: 1.0,
-					strokeWeight: 2
-				});
-				newLine.setMap(map);
-			}
-			previousPosition = position;
-		};	
 	</script>
     </head>
-    <body onload="initialize()">
+    <body>
     	#{doLayout /}
 		<div id="map_canvas"></div>
 	</body>

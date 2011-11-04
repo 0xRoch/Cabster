@@ -21,6 +21,10 @@ public class Application extends Controller {
         render();
     }
     
+    public static void login() {
+    	render();
+    }
+    
     // Utils
     static void connect(User user) {
         session.put("logged", user.id);

@@ -43,6 +43,9 @@ public class User extends Model {
 
     public String needConfirmation;
 
+    public Double latitude;
+    public Double longitude;
+    
     // ~~~~~~~~~~~~ 
     
     public User() {}
