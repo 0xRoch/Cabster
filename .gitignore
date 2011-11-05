@@ -3,4 +3,5 @@ tmp/
 .settings/org.eclipse.core.resources.prefs
 .dropbox
 eclipse/
+modules/
 war/WEB-INF/appengine-generated/datastore-indexes-auto.xml

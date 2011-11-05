@@ -48,7 +48,7 @@ var App = {
   },
   
   usersNearby: function() {
-	  var bds = map.getBounds();
+	   var bds = map.getBounds();
 	   var South_Lat = bds.getSouthWest().lat();
 	   var South_Lng = bds.getSouthWest().lng();
 	   var North_Lat = bds.getNorthEast().lat();
