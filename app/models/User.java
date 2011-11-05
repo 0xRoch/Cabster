@@ -111,8 +111,8 @@ public class User extends Model {
         return all().filter("name", name).get();
     }
     
-    public static List<User> searchByName(String name) {
-        return all().search(name + "*", "name").fetch();
+    public static List<User> findByLocation(Long South_Lat, Long South_Lng, Long North_Lat, Long North_Lng) {
+    	return all().filter(">latitude", South_Lat).filter(">longitude", South_Lng).filter("<latitude", North_Lat).filter("<longitude", North_Lng).fetch();
     }
 
     public static boolean isEmailAvailable(String email) {
