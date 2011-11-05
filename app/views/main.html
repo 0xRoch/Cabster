@@ -27,8 +27,10 @@
     	<div id="slide" class="selectable"></div>
         <div data-role="page" class="page-map">
 
-            <div data-role="header"><h1><a href="/">Cabster | Share a cab</a></h1>
-            <a href="@{Places.listPlaces()}">Find a place</a></div>
+            <div data-role="header">
+            	<a href="@{Application.index()}" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home ui-btn ui-btn-icon-notext ui-btn-corner-all ui-shadow ui-btn-down-f ui-btn-up-f" title="Home" data-theme="f"><span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true"><span class="ui-btn-text">Home</span><span class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+           		<h1><a href="/">Cabster | Share a cab</a></h1>
+            </div>
 
             <div data-role="content">
                 <div id="map_canvas">
