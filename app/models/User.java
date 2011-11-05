@@ -52,6 +52,12 @@ public class User extends Model {
     public float longitude;
     public Date lastSeen;
     
+    @EmbedIgnore @Filter("from")
+    public Query<Request> outgoing_requests;
+    
+    @EmbedIgnore @Filter("to")
+    public Query<Request> incoming_requests;
+    
     // ~~~~~~~~~~~~ 
     
     public User() {}
