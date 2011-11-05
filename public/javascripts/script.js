@@ -6,8 +6,6 @@ var App = {
 
   init: function() {
 	App.init()
-	App.usersNearby()
-	App.fetchRequests()
   },
   
   init: function() {
@@ -40,6 +38,7 @@ var App = {
 	newLine.setMap(map);
 
 	App.usersNearby();
+	App.fetchRequests();
 	
 	$.ajax({
 	  type: "POST",
@@ -83,9 +82,12 @@ var App = {
 	  $.getJSON("/Users/fetchIncomingRequests",
 		   function(json) {
 			   $.each(json, function(i,item){
-				   
+				   //$.mobile.changePage("/Requests/show?id="+item.id)
 			   });
 			});
+  },
+  
+  findPlace: function(where) {
 	  
   }
 }

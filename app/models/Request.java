@@ -46,6 +46,6 @@ public class Request extends Model {
     
     public static List<Request> findIncomingByUser(Long id) {
     	User user = User.findById(id);
-    	return all().filter("to", user).fetch();
+    	return all().filter("to", user).filter("opened", false).fetch();
     }
 }
