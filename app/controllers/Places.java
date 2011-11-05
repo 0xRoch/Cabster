@@ -41,6 +41,9 @@ public class Places extends Application {
         	String placeName = jsonPlace.getString("name");
         	Place place = new Place();
         	place.name = placeName;
+        	JSONObject location = jsonPlace.getJSONObject("geometry").getJSONObject("location");
+        	place.latitude = Float.valueOf(location.getString("lat"));
+        	place.longitude = Float.valueOf(location.getString("lng"));
         	places.add(place);
         }
         

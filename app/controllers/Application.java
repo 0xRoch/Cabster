@@ -31,7 +31,7 @@ public class Application extends Controller {
     	for (User user:users) {
     		output += "{\"id\":"+user.id+",\"latitude\":"+(float)user.latitude+",\"longitude\":"+(float)user.longitude+"},";
     	}
-    	output = output.substring(0, output.length() -1)+"]";
+    	output = output.substring(0, output.length() -1) + "]";
     	renderText(output);
     }
     

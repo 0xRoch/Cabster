@@ -46,6 +46,10 @@ public class User extends Model {
     public float longitude;
     public Date lastSeen;
     
+    public String destination;
+    public float destination_lat;
+    public float destination_lon;
+    
     @EmbedIgnore @Filter("from")
     public Query<Request> outgoing_requests;
     
