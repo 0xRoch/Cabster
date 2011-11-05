@@ -25,6 +25,11 @@ public class Application extends Controller {
     	render();
     }
     
+    public static void userNearby() {
+    	
+    	//renderJSON(o);
+    }
+    
     // Utils
     static void connect(User user) {
         session.put("logged", user.id);
