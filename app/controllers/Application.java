@@ -29,9 +29,9 @@ public class Application extends Controller {
     	List<User> users = User.findByLocation(South_Lat, South_Lng, North_Lat, North_Lng);
     	String output = "[";
     	for (User user:users) {
-    		output += "{\"id\":"+user.id+",\"latitude\":"+(float)user.latitude+",\"longitude\":"+(float)user.longitude+",\"lastSeen\":\""+user.lastSeen.toString()+"\"}";
+    		output += "{\"id\":"+user.id+",\"latitude\":"+(float)user.latitude+",\"longitude\":"+(float)user.longitude+",\"lastSeen\":\""+user.lastSeen.toString()+"\"},";
     	}
-    	output += "]";
+    	output = output.substring(0, output.length() -1)+"]";
     	renderText(output);
     }
     
