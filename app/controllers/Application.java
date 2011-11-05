@@ -25,6 +25,11 @@ public class Application extends Controller {
     	render();
     }
     
+    public static void usersMatching() {
+    	List<User> users = User.findByDestination(connectedUser().destination_lat, connectedUser().destination_lat);
+    	render(users);
+    }
+    
     public static void usersNearby(Long South_Lat, Long South_Lng, Long North_Lat, Long North_Lng) {
     	List<User> users = User.findByLocation(South_Lat, South_Lng, North_Lat, North_Lng);
     	String output = "[";

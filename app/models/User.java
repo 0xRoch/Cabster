@@ -121,6 +121,12 @@ public class User extends Model {
         return all().filter("name", name).get();
     }
     
+    public static List<User> findByDestination(float latitude, float longitude) {
+    	//List<User> users = all().filter("latitude", latitude).filter("latitude", longitude).fetch();
+    	List<User> users = all().fetch();
+    	return users;
+    }
+    
     public static List<User> findByLocation(Long South_Lat, Long South_Lng, Long North_Lat, Long North_Lng) {
     	//List<User> users = all().filter("latitude<", South_Lat).filter("latitude>", North_Lat).fetch();
     	//users = ((Query<User>) users).filter("latitude>", North_Lat).filter("longitude>", North_Lng).fetch();

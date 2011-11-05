@@ -21,6 +21,7 @@ public class Users extends Application {
     		user.destination_lon = Float.valueOf(longitude);
     		user.lastSeen = new Date();
     		user.update();
+    		Application.usersMatching();
     	}
     }
 	
