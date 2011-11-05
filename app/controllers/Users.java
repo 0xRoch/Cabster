@@ -13,6 +13,17 @@ public class Users extends Application {
 		render(user);
 	}
 	
+	public static void updateDest(String destination, String latitude, String longitude) {
+    	User user = Application.connectedUser();
+    	if (user != null) {
+    		user.destination = destination;
+    		user.destination_lat = Float.valueOf(latitude);
+    		user.destination_lon = Float.valueOf(longitude);
+    		user.lastSeen = new Date();
+    		user.update();
+    	}
+    }
+	
     public static void updateLoc(String latitude, String longitude) {
     	User user = Application.connectedUser();
     	if (user != null) {

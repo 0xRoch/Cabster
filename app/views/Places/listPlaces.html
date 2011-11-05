@@ -3,5 +3,5 @@
 Tell us where you want to go ! <br>
 
 #{list items:places, as:'place'}
-	${place.name}<br>
+	<a href="@{Users.updateDest(place.name, place.latitude, place.longitude)}">${place.name}</a>
 #{/list}
