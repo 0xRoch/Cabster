@@ -65,7 +65,7 @@ var App = {
 				   map: map
 			   });
 			   google.maps.event.addListener(marker, "click", function() {
-			        window.location = "/Users/showInfo?id="+item.id;
+			        $.mobile.changePage("/Users/showInfo?id="+item.id)
 			   });
 		   });
 		});
