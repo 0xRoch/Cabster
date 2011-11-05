@@ -29,10 +29,8 @@ var App = {
 		position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
 		map: map
 	});  
-	var previousPosition = null;
-	if (previousPosition){
+
 		var newLineCoordinates = [
-									 new google.maps.LatLng(previousPosition.coords.latitude, previousPosition.coords.longitude),
 									 new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
 								   ];
 		
@@ -43,8 +41,7 @@ var App = {
 			strokeWeight: 2
 		});
 		newLine.setMap(map);
-	}
-	previousPosition = position;
+
 	
 	App.usersNearby();
 	
