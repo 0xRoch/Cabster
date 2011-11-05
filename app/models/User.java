@@ -42,6 +42,7 @@ public class User extends Model {
     @EmbedIgnore
     public String needConfirmation;
 
+    public String location;
     public float latitude;
     public float longitude;
     public Date lastSeen;
@@ -49,6 +50,7 @@ public class User extends Model {
     public String destination;
     public float destination_lat;
     public float destination_lon;
+    public Date preferredTime;
     
     @EmbedIgnore @Filter("from")
     public Query<Request> outgoing_requests;
