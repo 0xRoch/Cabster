@@ -26,8 +26,13 @@ public class Application extends Controller {
     }
     
     public static void usersNearby(Long South_Lat, Long South_Lng, Long North_Lat, Long North_Lng) {
-    	
-    	//renderJSON(o);
+    	List<User> users = User.findByLocation(South_Lat, South_Lng, North_Lat, North_Lng);
+    	String output = "[";
+    	for (User user:users) {
+    		output += "{\"id\":"+user.id+",\"latitude\":"+(float)user.latitude+",\"longitude\":"+(float)user.longitude+",\"lastSeen\":\""+user.lastSeen.toString()+"\"},";
+    	}
+    	output = output.substring(0, output.length() -1)+"]";
+    	renderText(output);
     }
     
     // Utils
