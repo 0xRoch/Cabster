@@ -58,12 +58,13 @@ var App = {
 	   var North_Lng = bds.getNorthEast().lng();
 	   $.getJSON("/Application/usersNearby?slat="+South_Lat+"&slon="+South_Lng+"&nlat="+North_Lat+"&nlon="+North_Lng,
 	   function(json) {
+		   var markersArray = [];
 		   $.each(json, function(i,item){
 			   var marker = new google.maps.Marker({
 				   position: new google.maps.LatLng(item.latitude, item.longitude), 
 				   map: map
 			   });
-			   google.maps.Event.addListener(marker, "click", function() {
+			   google.maps.event.addListener(marker, "click", function() {
 			        window.location = "/Users/showInfo?id="+item.id;
 			   });
 		   });

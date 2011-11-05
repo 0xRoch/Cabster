@@ -10,7 +10,9 @@ import play.data.validation.*;
 import com.google.gson.*;
 import play.cache.Cache;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import org.apache.commons.lang.WordUtils;
 import org.junit.Ignore;
@@ -118,7 +120,11 @@ public class User extends Model {
     public static List<User> findByLocation(Long South_Lat, Long South_Lng, Long North_Lat, Long North_Lng) {
     	//List<User> users = all().filter("latitude<", South_Lat).filter("latitude>", North_Lat).fetch();
     	//users = ((Query<User>) users).filter("latitude>", North_Lat).filter("longitude>", North_Lng).fetch();
-    	List<User> users = all().fetch();
+    	Calendar cal = new GregorianCalendar();
+    	cal.setTime(new Date());
+    	cal.add(Calendar.DAY_OF_YEAR,-1);
+    	Date oneDayBefore= cal.getTime();
+    	List<User> users = all().filter("lastSeen>", oneDayBefore).fetch();
     	return users;
     }
 
