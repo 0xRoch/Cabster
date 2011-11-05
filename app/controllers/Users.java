@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Date;
+
 import models.User;
 
 public class Users extends Application {
@@ -9,6 +11,7 @@ public class Users extends Application {
     	if (user != null) {
     		user.latitude = latitude;
     		user.longitude = longitude;
+    		user.lastSeen = new Date();
     		user.update();
     	}
     }    

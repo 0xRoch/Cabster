@@ -29,20 +29,17 @@ var App = {
 		position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
 		map: map
 	});  
-
-		var newLineCoordinates = [
-									 new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-								   ];
-		
-		var newLine = new google.maps.Polyline({
-			path: newLineCoordinates,	       
-			strokeColor: "#FF0000",
-			strokeOpacity: 1.0,
-			strokeWeight: 2
-		});
-		newLine.setMap(map);
-
 	
+	var newLineCoordinates = [new google.maps.LatLng(position.coords.latitude, position.coords.longitude)];
+	
+	var newLine = new google.maps.Polyline({
+		path: newLineCoordinates,	       
+		strokeColor: "#FF0000",
+		strokeOpacity: 1.0,
+		strokeWeight: 2
+	});
+	newLine.setMap(map);
+
 	App.usersNearby();
 	
 	$.ajax({
