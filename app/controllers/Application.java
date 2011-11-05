@@ -25,6 +25,10 @@ public class Application extends Controller {
     	render();
     }
     
+    public static void shareACab() {
+    	render();
+    }
+    
     public static void usersMatching() {
     	List<User> users = User.findByDestination(connectedUser().destination_lat, connectedUser().destination_lat);
     	render(users);
@@ -34,7 +38,9 @@ public class Application extends Controller {
     	List<User> users = User.findByLocation(South_Lat, South_Lng, North_Lat, North_Lng);
     	String output = "[";
     	for (User user:users) {
-    		output += "{\"id\":"+user.id+",\"latitude\":"+(float)user.latitude+",\"longitude\":"+(float)user.longitude+"},";
+    		if (user.id != connectedUser().id) {
+    			output += "{\"id\":"+user.id+",\"latitude\":"+(float)user.latitude+",\"longitude\":"+(float)user.longitude+"},";
+    		}
     	}
     	output = output.substring(0, output.length() -1) + "]";
     	renderText(output);
