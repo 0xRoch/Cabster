@@ -27,7 +27,8 @@
     	<div id="slide" class="selectable"></div>
         <div data-role="page" class="page-map">
 
-            <div data-role="header"><h1><a href="/">Cabster | Share a cab</a></h1><a href="@{Places.listPlaces()}">Find a place</a></div>
+            <div data-role="header"><h1><a href="/">Cabster | Share a cab</a></h1>
+            <a href="@{Places.listPlaces()}">Find a place</a></div>
 
             <div data-role="content">
                 <div id="map_canvas">
@@ -42,7 +43,12 @@
                         <li><a href="@{Application.login()}" id="calendar" data-rel="dialog" data-icon="custom" >Login</a></li>
                         #{/if}
                         #{else}
-                        <li><a href="/" id="star" data-icon="custom">Sponsor</a></li>
+                        <li>
+                        #{form @Places.listPlaces(), id:'searchPlaces', enctype:'multipart/form-data' }
+							<input type="text" name="name" value="" />
+							<input type="submit" value="Search a place" />
+						#{/form}
+                        </li>
                         #{/else}
                     </ul>
                 </div><!-- /navbar -->
