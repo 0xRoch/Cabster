@@ -13,6 +13,8 @@ import play.cache.Cache;
 import java.util.Date;
 import java.util.List;
 import org.apache.commons.lang.WordUtils;
+import org.junit.Ignore;
+
 import play.mvc.Scope.Session;
 import siena.embed.EmbedIgnore;
 import siena.embed.Embedded;
@@ -43,10 +45,11 @@ public class User extends Model {
 
     public String facebook;
 
+    @EmbedIgnore
     public String needConfirmation;
 
-    public Double latitude;
-    public Double longitude;
+    public float latitude;
+    public float longitude;
     public Date lastSeen;
     
     // ~~~~~~~~~~~~ 

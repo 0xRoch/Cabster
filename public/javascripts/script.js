@@ -45,7 +45,7 @@ var App = {
 	$.ajax({
 	  type: "POST",
 	  url: "/Users/updateLoc",
-	  data: "lat="+position.coords.latitude+"&lon="+position.coords.longitude,
+	  data: "latitude="+position.coords.latitude+"&longitude="+position.coords.longitude,
 	}).done(function( msg ) {
 	  //alert( "Data Saved: " + msg );
 	});
