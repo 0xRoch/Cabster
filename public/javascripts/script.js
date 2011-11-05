@@ -4,17 +4,15 @@ $(function(){
 
 var App = {
 
-  init: function() {
-	App.init()
-  },
+  var markersArray = [],
+  map = new google.maps.Map(document.getElementById("map_canvas"), {
+      zoom: 17,
+      center: new google.maps.LatLng(48.000000, 2.347198),
+	  disableDefaultUI: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  }),
   
   init: function() {
-	  map = new google.maps.Map(document.getElementById("map_canvas"), {
-	      zoom: 17,
-	      center: new google.maps.LatLng(48.000000, 2.347198),
-		  disableDefaultUI: true,
-	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	  });
 	  google.maps.event.addListenerOnce(map, 'idle', function(){
 		  if (navigator.geolocation) {
 				var watchId = navigator.geolocation.watchPosition(App.successCallback, null, {enableHighAccuracy:true});
@@ -26,7 +24,7 @@ var App = {
   
   successCallback: function(position) {
 	map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));  
-	
+	App.addMarker(new google.maps.LatLng(item.latitude, item.longitude));
 	var newLineCoordinates = [new google.maps.LatLng(position.coords.latitude, position.coords.longitude)];
 	
 	var newLine = new google.maps.Polyline({
@@ -57,12 +55,8 @@ var App = {
 	   var North_Lng = bds.getNorthEast().lng();
 	   $.getJSON("/Application/usersNearby?slat="+South_Lat+"&slon="+South_Lng+"&nlat="+North_Lat+"&nlon="+North_Lng,
 	   function(json) {
-		   var markersArray = [];
 		   $.each(json, function(i,item){
-			   var marker = new google.maps.Marker({
-				   position: new google.maps.LatLng(item.latitude, item.longitude), 
-				   map: map
-			   });
+			   App.addMarker(new google.maps.LatLng(item.latitude, item.longitude));
 			   google.maps.event.addListener(marker, "click", function() {
 			        $.mobile.changePage("/Users/showInfo?id="+item.id)
 			   });
@@ -87,7 +81,11 @@ var App = {
 			});
   },
   
-  findPlace: function(where) {
-	  
+  addMarker: function(location) {
+	  marker = new google.maps.Marker({
+	    position: location,
+	    map: map
+	  });
+	  markersArray.push(marker);
   }
 }
