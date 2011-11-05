@@ -39,10 +39,10 @@
                 <div data-role="navbar" class="nav-glyphish-example">
                     <ul>
                     	#{if connected == null}
-                        <li><a href="@{Application.login()}" id="calendar" data-rel="dialog" data-icon="custom" rel=external>Login</a></li>
+                        <li><a href="@{Application.login()}" id="calendar" data-rel="dialog" data-icon="custom" >Login</a></li>
                         #{/if}
                         #{else}
-                        <li><a href="@{Events.index()}" id="star" data-icon="custom" rel=external>Sponsor</a></li>
+                        <li><a href="/" id="star" data-icon="custom">Sponsor</a></li>
                         #{/else}
                     </ul>
                 </div><!-- /navbar -->
