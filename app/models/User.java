@@ -125,7 +125,8 @@ public class User extends Model {
     	cal.add(Calendar.DAY_OF_YEAR,-1);
     	Date oneDayBefore= cal.getTime();
     	System.out.print(oneDayBefore);
-    	List<User> users = all().filter("lastSeen>", oneDayBefore).fetch();
+    	//List<User> users = all().filter("lastSeen>", oneDayBefore).fetch();
+    	List<User> users = all().fetch();
     	return users;
     }
 

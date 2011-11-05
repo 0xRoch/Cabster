@@ -38,7 +38,9 @@
             <div data-role="footer" class="nav-glyphish-example">
                 <div data-role="navbar" class="nav-glyphish-example">
                     <ul>
+                    	#{if connected == null}
                         <li><a href="@{Application.login()}" id="calendar" data-icon="custom">Login</a></li>
+                        #{/if}
                     </ul>
                 </div><!-- /navbar -->
             </div><!-- /footer -->
