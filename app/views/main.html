@@ -24,12 +24,12 @@
         </script>
     </head>
     <body>
-    	<div id="slide" class="selectable"></div>
+        <div id="slide" class="selectable"></div>
         <div data-role="page" class="page-map">
 
             <div data-role="header">
-            	<a href="@{Application.index()}" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home ui-btn ui-btn-icon-notext ui-btn-corner-all ui-shadow ui-btn-down-f ui-btn-up-f" title="Home" data-theme="f"><span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true"><span class="ui-btn-text">Home</span><span class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
-           		<h1><a href="/">Cabster | Share a cab</a></h1>
+                <a href="@{Application.index()}" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home ui-btn ui-btn-icon-notext ui-btn-corner-all ui-shadow ui-btn-down-f ui-btn-up-f" title="Home" data-theme="f"><span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true"><span class="ui-btn-text">Home</span><span class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
+                <h1><a href="/">Cabster | Share a cab</a></h1>
             </div>
 
             <div data-role="content">
@@ -42,19 +42,14 @@
                 <div data-role="navbar" class="nav-glyphish-example">
                     <ul>
                     	#{if connected == null}
-                        <li><a href="@{Application.login()}" id="calendar" data-rel="dialog" data-icon="custom" >Login</a></li>
+                        <li><a href="@{Application.login()}" id="calendar" data-rel="dialog" data-icon="custom" rel="external">Login</a></li>
                         #{/if}
                         #{else}
-                        <li>
-                        #{form @Places.listPlaces(), id:'searchPlaces', enctype:'multipart/form-data' }
-							<input type="text" name="name" value="" />
-							<input type="submit" value="Search a place" />
-						#{/form}
-                        </li>
+                        <li><a href="@{Application.shareACab()}" id="calendar" data-rel="dialog" data-icon="custom" >Share a cab</a></li>
                         #{/else}
                     </ul>
                 </div><!-- /navbar -->
             </div><!-- /footer -->
         </div>
-</body>
+    </body>
 </html>

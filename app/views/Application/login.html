@@ -1,5 +1,5 @@
 #{extends 'main.html' /}
 #{if connected == null}
-	<a href="@{Oauth.twitterConnect()}" rel="external"><img src="/public/images/twitter_connect.png" alt="Login with Twitter" /></a>
-	<a href="@{Oauth.googleConnect()}" rel="external"><img src="/public/images/google_connect.png" alt="Login with Google" /></a>
+	<a href="@{Oauth.twitterConnect()}"><img src="/public/images/twitter_connect.png" alt="Login with Twitter" /></a>
+	<a href="@{Oauth.googleConnect()}"><img src="/public/images/google_connect.png" alt="Login with Google" /></a>
 #{/if}

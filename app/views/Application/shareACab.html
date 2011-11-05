@@ -1,22 +1,22 @@
 #{extends 'main.html' /}
 
-<form action="#" method="GET">
-        <p>
-            <label for="from">Starting from</label>
-            <input type="text" name="from" id="from" value="${flash.from}" />
-            <span class="error">#{error 'from' /}</span>
-        </p>
-        <p>
-            <label for="to">Going to</label>
-            <input type="text" name="to" id="to" value="${flash.to}" />
-            <span class="error">#{error 'to' /}</span>
-        </p>
-        <p>
-            <label for="when">Leaving when?</label>
-            <input type="text" name="when" id="when" value="${flash.when}" />
-            <span class="error">#{error 'when' /}</span>
-        </p>
-        <p>
-            <input type="submit" value="Get a cab" />
-        </p>
-    </form>
+#{form @Places.listPlaces(), id:'searchPlaces', enctype:'multipart/form-data' }
+<p>
+    <label for="from">Starting from</label>
+    <input type="text" name="from" id="from" value="${flash.from}" />
+    <span class="error">#{error 'from' /}</span>
+</p>
+<p>
+    <label for="to">Going to</label>
+    <input type="text" name="to" id="to" value="${flash.to}" />
+    <span class="error">#{error 'to' /}</span>
+</p>
+<p>
+    <label for="when">Leaving when?</label>
+    <input type="text" name="when" id="when" value="${flash.when}" />
+    <span class="error">#{error 'when' /}</span>
+</p>
+<p>
+    <input type="submit" value="Get a cab" />
+</p>
+#{/form}
