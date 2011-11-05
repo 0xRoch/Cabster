@@ -16,12 +16,14 @@ var App = {
 	      center: new google.maps.LatLng(48.000000, 2.347198),
 		  disableDefaultUI: true,
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    });	
-	  if (navigator.geolocation) {
-			var watchId = navigator.geolocation.watchPosition(App.successCallback, null, {enableHighAccuracy:true});
-	  } else {
-			alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
-	  }
+	  });
+	  google.maps.event.addListenerOnce(map, 'idle', function(){
+		  if (navigator.geolocation) {
+				var watchId = navigator.geolocation.watchPosition(App.successCallback, null, {enableHighAccuracy:true});
+		  } else {
+				alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+		  }
+	  });
   },
   
   successCallback: function(position) {
@@ -61,6 +63,9 @@ var App = {
 				   position: new google.maps.LatLng(item.latitude, item.longitude), 
 				   map: map
 			   });
+			   google.maps.Event.addListener(marker, "click", function() {
+			        window.location = "/Users/showInfo?id="+item.id;
+			   });
 		   });
 		});
   },
@@ -71,7 +76,7 @@ var App = {
 		  url: "/Users/sendRequest",
 		  data: "to="+to,
 		});
-  }
+  },
   
   fetchRequests: function() {
 	  $.getJSON("/Users/fetchIncomingRequests",

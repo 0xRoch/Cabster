@@ -13,7 +13,6 @@ public class Users extends Application {
     	if (user != null) {
     		user.latitude = Float.valueOf(latitude);
     		user.longitude = Float.valueOf(longitude);
-    		System.out.print(latitude);
     		user.lastSeen = new Date();
     		user.update();
     	}
