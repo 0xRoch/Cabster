@@ -33,17 +33,9 @@ public class User extends Model {
 
     @Index("name")
     public String name;
-
-    public String lang;
-
-    public String firstName;
-
-    public String lastName;
     
     public String twitter;
     public Long twitterId;
-
-    public String facebook;
 
     @EmbedIgnore
     public String needConfirmation;
