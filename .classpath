@@ -13,6 +13,7 @@
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/commons-digester-1.7.jar"/>
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/commons-pool-1.2.jar"/>
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/isorelax-20020414.jar"/>
+	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/msv-20020414.jar"/>
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/oro-2.0.8.jar"/>
 	<classpathentry kind="lib" path="/Users/mnml/Dropbox/Cabster/lib/relaxngDatatype-20020414.jar"/>

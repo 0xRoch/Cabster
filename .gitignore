@@ -5,3 +5,5 @@ tmp/
 eclipse/
 modules/
 war/WEB-INF/appengine-generated/datastore-indexes-auto.xml
+.classpath
+.settings/
