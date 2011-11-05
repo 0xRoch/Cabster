@@ -5,10 +5,12 @@
         <title>#{get 'title' /}</title>
         <meta charset="${_response_encoding}">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/jquery.mobile-1.0rc2.min.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/jquery.mobile-custom.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/jquery.mobile-1.0rc2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
         <style type="text/css">
 		  html { height: 100% }
@@ -22,6 +24,19 @@
     </head>
     <body>
     	#{doLayout /}
-		<div id="map_canvas"></div>
+		<div data-role="page" id="map_canvas"></div>
+
+            <div data-role="footer" class="nav-glyphish-example">
+                <div data-role="navbar" class="nav-glyphish-example">
+                    <ul>
+                        <li><a href="#" id="calendar" data-icon="custom">Login</a></li>
+                        <!--
+                        <li><a href="#" id="user" data-icon="custom">My Events</a></li>
+                        <li><a href="#" id="star" data-icon="custom">Sponsor</a></li>
+                        -->
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+        </div>
 	</body>
 </html>
