@@ -25,6 +25,10 @@ public class Application extends Controller {
     	render();
     }
     
+    public static void shareACab() {
+    	render();
+    }
+    
     public static void usersMatching() {
     	List<User> users = User.findByDestination(connectedUser().destination_lat, connectedUser().destination_lat);
     	render(users);

@@ -45,7 +45,7 @@
                         <li><a href="@{Application.login()}" id="calendar" data-rel="dialog" data-icon="custom" rel="external">Login</a></li>
                         #{/if}
                         #{else}
-                        <li><a href="/" id="calendar" data-rel="dialog" data-icon="custom" >Share a cab</a></li>
+                        <li><a href="@{Application.shareACab()}" id="calendar" data-rel="dialog" data-icon="custom" >Share a cab</a></li>
                         #{/else}
                     </ul>
                 </div><!-- /navbar -->
