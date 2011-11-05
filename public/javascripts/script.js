@@ -7,6 +7,7 @@ var App = {
   init: function() {
 	App.init()
 	App.usersNearby()
+	App.fetchRequests()
   },
   
   init: function() {
@@ -62,5 +63,23 @@ var App = {
 			   });
 		   });
 		});
+  },
+  
+  sendRequest: function(to) {
+	  $.ajax({
+		  type: "POST",
+		  url: "/Users/sendRequest",
+		  data: "to="+to,
+		});
+  }
+  
+  fetchRequests: function() {
+	  $.getJSON("/Users/fetchIncomingRequests",
+		   function(json) {
+			   $.each(json, function(i,item){
+				   
+			   });
+			});
+	  
   }
 }

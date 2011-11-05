@@ -34,6 +34,8 @@ public class Request extends Model {
     @Column("to")
     public User to;
     
+    public boolean opened;
+    
     static Query<Request> all() {
         return Model.all(Request.class);
     }
@@ -42,4 +44,8 @@ public class Request extends Model {
         return all().filter("id", id).get();
     }
     
+    public static List<Request> findIncomingByUser(Long id) {
+    	User user = User.findById(id);
+    	return all().filter("to", user).fetch();
+    }
 }
