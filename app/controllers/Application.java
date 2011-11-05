@@ -25,7 +25,7 @@ public class Application extends Controller {
     	render();
     }
     
-    public static void userNearby() {
+    public static void usersNearby(Long South_Lat, Long South_Lng, Long North_Lat, Long North_Lng) {
     	
     	//renderJSON(o);
     }

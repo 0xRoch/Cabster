@@ -63,7 +63,6 @@ var App = {
 	   var South_Lng = bds.getSouthWest().lng();
 	   var North_Lat = bds.getNorthEast().lat();
 	   var North_Lng = bds.getNorthEast().lng();
-	   alert(South_Lat,South_Lng,North_Lat,North_Lng);
 	   $.ajax({
 		  type: "POST",
 		  url: "/Application/usersNearby",
