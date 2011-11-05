@@ -6,6 +6,7 @@ var App = {
 
   init: function() {
 	App.init()
+	App.usersNearby()
   },
   
   init: function() {
@@ -45,6 +46,8 @@ var App = {
 	}
 	previousPosition = position;
 	
+	App.usersNearby();
+	
 	$.ajax({
 	  type: "POST",
 	  url: "/Users/updateLoc",
@@ -52,5 +55,21 @@ var App = {
 	}).done(function( msg ) {
 	  //alert( "Data Saved: " + msg );
 	});
+  },
+  
+  usersNearby: function() {
+	  var bds = map.getBounds();
+	   var South_Lat = bds.getSouthWest().lat();
+	   var South_Lng = bds.getSouthWest().lng();
+	   var North_Lat = bds.getNorthEast().lat();
+	   var North_Lng = bds.getNorthEast().lng();
+	   alert(South_Lat,South_Lng,North_Lat,North_Lng);
+	   $.ajax({
+		  type: "POST",
+		  url: "/Application/usersNearby",
+		  data: "slat="+South_Lat+"&slon="+South_Lng+"&nlat="+North_Lat+"&nlon="+North_Lng,
+		}).done(function( msg ) {
+		  //alert( "Data Saved: " + msg );
+		});
   }
 }
