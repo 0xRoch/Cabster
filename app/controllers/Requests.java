@@ -11,15 +11,21 @@ import models.User;
 public class Requests extends Application {
 
 	public static void show(Long id) {
-		Request request = Request.findById(id);
-		//if (connectedUser().id == request.to.id) {
-			request.opened = true;
-			request.update();
-			User from = request.from;
+		Request req = Request.findById(id);
+		User to = req.to;
+		if ((connectedUser().id == to.id && req.opened == false) || (connectedUser().id == req.from.id && req.opened == true)) {
+			int validationPage = 1;
+			if (req.opened == false) {
+				req.opened = true;
+			} else {
+				validationPage = 2;
+			}
+			req.update();
+			User from = req.from;
 			String leavingWhen = (String) Cache.get("leavingWhen::"+from.id);
 			String leavingFrom = (String) Cache.get("leavingFrom::"+from.id);
-			render(request, from, leavingWhen, leavingFrom);
-		//}
+			render(req, from, leavingWhen, leavingFrom, validationPage);
+		}
 	}
 	
     public static void markAsRead(Long id) {
