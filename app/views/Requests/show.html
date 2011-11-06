@@ -1,6 +1,6 @@
 #{extends 'main.html' /}
 
-#{if request.accepted == false}
+#{if request.accepted != null && request.accepted != false}
 You have received a request !
 
 ${from} would like to share a taxi with you !<br>
@@ -11,6 +11,6 @@ ${from} would like to share a taxi with you !<br>
 
 #{/if}
 
-#{if request.accepted == true}
+#{if request.accepted != null && request.accepted == true}
 Your request has been accepted
 #{/if}
