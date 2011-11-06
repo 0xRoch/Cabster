@@ -5,6 +5,7 @@ $(function(){
 var App = {
   
   init: function() {
+	  
 	  map = new google.maps.Map(document.getElementById("map_canvas"), {
 	      zoom: 17,
 	      center: new google.maps.LatLng(48.000000, 2.347198),
@@ -21,6 +22,7 @@ var App = {
   },
   
   successCallback: function(position) {
+	google.maps.Map.prototype.clearMarkers();
 	map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));  
 	
 	var newLineCoordinates = [new google.maps.LatLng(position.coords.latitude, position.coords.longitude)];
