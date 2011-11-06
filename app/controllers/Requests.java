@@ -31,19 +31,19 @@ public class Requests extends Application {
 	
     public static void markAsRead(Long id) {
     	Request req = Request.findById(id);
-    	if (req != null && connectedUser() != null) {
+    	//if (req != null && connectedUser() != null) {
     		req.opened = true;
     		req.update();
-    	}
+    	//}
     	Application.index();
     }
     
     public static void markAsAccepted(Long id) {
     	Request req = Request.findById(id);
-    	if (req != null && connectedUser() != null) {
+    	//if (req != null && connectedUser() != null) {
     		req.accepted = true;
     		req.update();
-    	}
+    	//}
     	Application.index();
     }
 
