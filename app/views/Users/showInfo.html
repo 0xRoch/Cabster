@@ -1,2 +1,13 @@
 #{extends 'main.html' /}
-<a href="@{Users.sendRequest(user.id)}">Click here to send a request to ${user.twitter}</a>
+
+<ul data-role="listview" data-split-icon="gear" data-inset="true">
+    <li><a href="@{Users.sendRequest(user.id)}">
+            <img src="images/avatar.jpg" />
+            <h3>${user}</h3>
+            <p>From <b>${location}</b></p>
+            <p>To <b>${destination}</b></p>
+            <p>In <b>${preferredTime} minutes</b></p>
+        </a>
+        <a href="lists-split-purchase.html">View in map</a>
+    </li>
+</ul>
