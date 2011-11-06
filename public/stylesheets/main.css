@@ -1,14 +1,18 @@
 html { width: 100%; min-height: 100%; padding: 0; }
 
-body { min-height: 100%; margin: 0; padding: 0; padding: 0; }
+body { min-height: 100%; margin: 0; padding: 0; }
 
 .page-map, .ui-content { width: 100%; height: 100%; padding: 0; }
 
-.content { max-height: 92%; }
+.content { max-width: 96%; max-height: 92%; margin: 2%; }
 
 .content-with-footer { height: 84%; }
 
+.footer { max-height: 16%; }
+
 #map_canvas { width: 100%; height: 100%; }
+
+.ui-bar-c .ui-corner-all .ui-shadow { margin: 0 auto; padding: 1em; }
 
 
 
