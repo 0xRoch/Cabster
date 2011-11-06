@@ -13,7 +13,7 @@ public class Requests extends Application {
 	public static void show(Long id) {
 		Request req = Request.findById(id);
 		User to = req.to;
-		if ((connectedUser().id == to.id && req.opened == false) || (connectedUser().id == req.from.id && req.opened == true)) {
+		//if ((connectedUser().id == to.id && req.opened == false) || (connectedUser().id == req.from.id && req.opened == true)) {
 			int validationPage = 1;
 			if (req.opened == false) {
 				req.opened = true;
@@ -26,22 +26,22 @@ public class Requests extends Application {
 			String leavingWhen = (String) Cache.get("leavingWhen::"+from.id);
 			String leavingFrom = (String) Cache.get("leavingFrom::"+from.id);
 			render(req, from, leavingWhen, leavingFrom, validationPage);
-		}
+		//}
 	}
 	
     public static void markAsRead(Long id) {
-    	Request request = Request.findById(id);
-    	if (request != null && connectedUser() != null && connectedUser() == request.to) {
-    		request.opened = true;
-    		request.update();
+    	Request req = Request.findById(id);
+    	if (req != null && connectedUser() != null && connectedUser() == req.to) {
+    		req.opened = true;
+    		req.update();
     	}
     }
     
     public static void markAsAccepted(Long id) {
-    	Request request = Request.findById(id);
-    	if (request != null && connectedUser() != null && connectedUser() == request.to) {
-    		request.accepted = true;
-    		request.update();
+    	Request req = Request.findById(id);
+    	if (req != null && connectedUser() != null && connectedUser() == req.to) {
+    		req.accepted = true;
+    		req.update();
     	}
     }
 
