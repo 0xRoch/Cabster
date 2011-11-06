@@ -1,7 +1,11 @@
 #{extends 'main.html' /}
 #{if connected == null}
+
+<div data-role="content" class="content" data-theme="c">
+<p>&nbsp;</p>
 <div class="ui-grid-a">
-    <div class="ui-block-a"><a href="@{Oauth.twitterConnect()}"><img src="/public/images/twitter.png" alt="Login with Twitter" /></a></div>
-    <div class="ui-block-b"><a href="@{Oauth.googleConnect()}"><img src="/public/images/google.png" alt="Login with Google" /></a></div>
+    <div class="ui-block-a"><a href="@{Oauth.twitterConnect()}"><img src="/public/images/twitter.png" alt="Login with Twitter" data-role="button" class="centre"></a></div>
+    <div class="ui-block-b"><a href="@{Oauth.googleConnect()}"><img src="/public/images/google.png" alt="Login with Google" data-role="button" class="centre"></a></div>
+</div>
 </div>
 #{/if}

@@ -1,4 +1,20 @@
 #{extends 'main.html' /}
 #{set title:'CabsterApp' /}
 
-<div id="map_canvas"></div>
+<div data-role="content" class="content">
+    <div id="map_canvas"></div>
+</div>
+
+
+<div data-role="footer" class="nav-glyphish-example">
+    <div data-role="navbar" class="nav-glyphish-example">
+        <ul>
+                    	#{if connected == null}
+            <li><a href="@{Application.login()}" id="calendar" data-rel="dialog" data-icon="custom">Login</a></li>
+            #{/if}
+            #{else}
+            <li><a href="@{Application.shareACab()}" id="calendar" data-rel="dialog" data-icon="custom" >Share a cab</a></li>
+            #{/else}
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->

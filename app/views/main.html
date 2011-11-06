@@ -8,40 +8,29 @@
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/jquery.mobile-1.0rc2.min.css'}">
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/jquery.mobile-custom.css'}">
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/jquery.mobile.actionsheet.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         <script src="@{'/public/javascripts/jquery.mobile-1.0rc2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/jquery.mobile.actionsheet.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
 
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
         <script src="@{'/public/javascripts/script.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     </head>
     <body>
-        <div id="slide" class="selectable"></div>
-        <div data-role="page" class="page-map">
+        <div data-role="page" class="page-map" data-add-back-btn="true">
 
             <div data-role="header">
-                <a href="@{Application.index()}" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home ui-btn ui-btn-icon-notext ui-btn-corner-all ui-shadow ui-btn-down-f ui-btn-up-f" title="Home" data-theme="f"><span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true"><span class="ui-btn-text">Home</span><span class="ui-icon ui-icon-home ui-icon-shadow"></span></span></a>
-                <h1><a href="/">Cabster | Share a cab</a></h1>
+                <h1><a href="@{Application.index()}">Cabster | Share a cab</a></h1>
             </div>
 
-            <div data-role="content">
+
                 #{doLayout /}
-            </div>
 
-            <div data-role="footer" class="nav-glyphish-example">
-                <div data-role="navbar" class="nav-glyphish-example">
-                    <ul>
-                    	#{if connected == null}
-                        <li><a href="@{Application.login()}" id="calendar" data-rel="dialog" data-icon="custom" rel="external">Login</a></li>
-                        #{/if}
-                        #{else}
-                        <li><a href="@{Application.shareACab()}" id="calendar" data-rel="dialog" data-icon="custom" >Share a cab</a></li>
-                        #{/else}
-                    </ul>
-                </div><!-- /navbar -->
-            </div><!-- /footer -->
+
+
         </div>
     </body>
 </html>
