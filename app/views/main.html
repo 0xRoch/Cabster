@@ -22,9 +22,10 @@
     <body>
         <div data-role="page" class="page-map">
 
-            <div data-role="header" data-add-back-btn="true">
-                <h1><a href="@{Application.index()}">Cabster | Share a cab</a></h1>
-                <span onclick="App.fetchRequests()">Refresh</span>
+            <div data-role="header" data-position="inline" data-add-back-btn="true">
+                <a href="#" data-role="button" onclick="App.fetchRequests()"><img src="/public/images/reload_alt1_24x28.png" alt="Refresh" data-role="button"></a>
+                <h1>Cabster | Share a cab</h1>
+                <a href="@{Application.index()}" data-role="button"><img src="/public/images/home_24x24.png" alt="Home" data-role="button" data-ajax="false"></a>
             </div>
             #{doLayout /}
         </div>

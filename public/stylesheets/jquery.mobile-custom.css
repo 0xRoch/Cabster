@@ -13,3 +13,5 @@
 #star .ui-icon { background:  url(glyphish-icons/28-star.png) 50% 50% no-repeat; background-size: 26px 26px; }
 
 .centre { display: block; margin: 0 auto; }
+
+#taxi .ui-icon { background:  url(glyphish-icons/map_pin_stroke_32x32.png) 50% 50% no-repeat;  background-size: 20px 32px; }

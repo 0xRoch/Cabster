@@ -4,7 +4,7 @@
     <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
         #{if validationPage == 1}
         <p>Cool, ${from} would like to share a taxi with you!</p>
-        <p>#{if leavingWhen =! null}${from} will be leaving at ${leavingWhen}#{/if} #{if leavingFrom =! null}${from} from ${leavingFrom}#{/if}</p>
+        <p>#{if leavingWhen =! null}${from} will be leaving at ${leavingWhen}#{/if} #{if leavingFrom =! null}${from} from ${leavingFrom}#{/if}.</p>
         <a href="@{Requests.markAsAccepted(req.id)}" data-role="button" data-ajax="false">I accept the ride</a>
         <a href="@{Application.index()}" data-role="button" data-ajax="false">I prefer to walk</a>
         #{/if}
