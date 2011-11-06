@@ -46,7 +46,6 @@ public class User extends Model {
     public float longitude;
     public Date lastSeen;
     
-    public String destination;
     public float destination_lat;
     public float destination_lon;
     
@@ -86,6 +85,10 @@ public class User extends Model {
     public String fullName() {
         return WordUtils.capitalize(this.name);
     }
+    
+    public String getDestination() {
+    	return (String) Cache.get("destination::" + this.id);
+    }
 
     @Override
     public String toString() {
@@ -122,7 +125,7 @@ public class User extends Model {
     }
     
     public static List<User> findByDestination(float latitude, float longitude) {
-    	//List<User> users = all().filter("latitude", latitude).filter("latitude", longitude).fetch();
+    	//List<User> users = all().filter("destination_lat", latitude).filter("destination_lat", longitude).fetch();
     	List<User> users = all().fetch();
     	return users;
     }
@@ -135,8 +138,7 @@ public class User extends Model {
     	cal.add(Calendar.DAY_OF_YEAR,-1);
     	Date oneDayBefore= cal.getTime();
     	System.out.print(oneDayBefore);
-    	//List<User> users = all().filter("lastSeen>", oneDayBefore).fetch();
-    	List<User> users = all().fetch();
+    	List<User> users = all().filter("lastSeen>", oneDayBefore).fetch();
     	return users;
     }
 
