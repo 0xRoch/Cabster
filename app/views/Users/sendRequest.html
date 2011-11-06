@@ -1,7 +1,8 @@
 #{extends 'main.html' /}
 
 <div data-role="content" class="content">
-
-    <p>Thank you. You will receive a message if ${user} accepts the ride.</p>
-
+    <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+        <p>Thank you. You will receive a message if ${user} accepts the ride.</p>
+        <a href="@{Application.index()}" data-role="button" data-ajax="false">Ok</a>
+    </div>
 </div>

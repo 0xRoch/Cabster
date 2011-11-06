@@ -1,16 +1,16 @@
 #{extends 'main.html' /}
 
-#{if validationPage == 1}
-You have received a request !
+<div data-role="content" class="content">
+    <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+        #{if validationPage == 1}
+        <p>Cool, ${from} would like to share a taxi with you!</p>
+        <p>#{if leavingWhen =! null}${from} will be leaving at ${leavingWhen}#{/if} #{if leavingFrom =! null}${from} from ${leavingFrom}#{/if}</p>
+        <a href="@{Requests.markAsAccepted(req.id)}" data-role="button" data-ajax="false">I accept the ride</a>
+        <a href="@{Application.index()}" data-role="button" data-ajax="false">I prefer to walk</a>
+        #{/if}
 
-${from} would like to share a taxi with you !<br>
-
-#{if leavingWhen =! null}${from} will be leaving at ${leavingWhen}#{/if} #{if leavingFrom =! null}${from} from ${leavingFrom}#{/if}
-
-<a href="@{Requests.markAsAccepted(req.id)}">Accept it !</a><br>
-
-#{/if}
-
-#{if validationPage == 2}
-Your request has been accepted
-#{/if}
+        #{if validationPage == 2}
+        <p>${user} agrees to share a cab with you. He's waiting just around the corner!</p>
+        #{/if}
+    </div>
+</div>
