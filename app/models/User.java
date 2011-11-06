@@ -42,14 +42,12 @@ public class User extends Model {
     @EmbedIgnore
     public String needConfirmation;
 
-    public String location;
     public float latitude;
     public float longitude;
     public Date lastSeen;
     
     public float destination_lat;
     public float destination_lon;
-    public Date preferredTime;
     
     @EmbedIgnore @Filter("from")
     public Query<Request> outgoing_requests;
@@ -88,6 +86,10 @@ public class User extends Model {
         return WordUtils.capitalize(this.name);
     }
     
+    public String preferredTime() {
+    	return (String) Cache.get("preferredTime::" + this.id);
+    }
+    
     public String getDestination() {
     	return (String) Cache.get("destination::" + this.id);
     }
@@ -99,6 +101,12 @@ public class User extends Model {
         } else {
             return fullName();
         }
+    }
+    
+    public String getAvatar() {
+    	String hash = MD5Util.md5Hex(this.email);
+    	String url = "http://www.gravatar.com/avatar/";
+    	return url+hash;
     }
     // ~~~~~~~~~~~~ 
     

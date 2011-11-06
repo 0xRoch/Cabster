@@ -3,6 +3,8 @@ package controllers;
 import java.util.Date;
 import java.util.List;
 
+import controllers.Application.MD5Util;
+
 import play.cache.Cache;
 
 import models.Request;
