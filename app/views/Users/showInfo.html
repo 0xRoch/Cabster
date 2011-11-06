@@ -1,6 +1,6 @@
 #{extends 'main.html' /}
 
-<div data-role="content" class="content" data-theme="c">
+<div data-role="content" class="content">
     <ul data-role="listview" data-split-icon="gear" data-inset="true">
         <li><a href="@{Users.sendRequest(user.id)}">
                 <img src="${user.getAvatar()}" />
@@ -10,7 +10,7 @@
                 #{if user.preferredTime()}<p>In <b>${preferredTime} minutes</b></p>#{/if}
                 This user is ${distance}km away.
             </a>
-            <a href="lists-split-purchase.html">View in map</a>
+            <a href="#">View in map</a>
         </li>
     </ul>
 </div>

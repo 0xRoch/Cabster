@@ -8,6 +8,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import play.data.validation.Valid;
+import play.data.validation.Required;
 
 import org.apache.commons.io.IOUtils;
 
@@ -19,12 +21,13 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
+
 import sun.net.www.URLConnection;
 
 public class Places extends Application {
 	
-	public static void listPlaces(String from, String to, String when) throws IOException {
-		
+	public static void listPlaces(String from, @Required String to, String when) throws IOException {
+
 		User user = Application.connectedUser();
 		
 		Cache.set("leavingWhen::"+user.id, when, "30mn");

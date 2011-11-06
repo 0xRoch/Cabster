@@ -1,9 +1,13 @@
 #{extends 'main.html' /}
 
-We have found a few guys going in the same direction !
+<div data-role="content" class="content">
 
-#{list items:users, as:'user'}
-		#{if user.id != connected.id}
-			<a href="@{Users.showInfo(user.id)}">${user}</a><br>
-		#{/if}
-#{/list}
+    <ul data-role="listview" data-inset="true">
+        #{list items:users, as:'user'}
+        #{if user.id != connected.id}
+        <li><a href="@{Users.showInfo(user.id)}">${user}</a></li>
+        #{/if}
+        #{/list}
+    </ul>
+
+</div>

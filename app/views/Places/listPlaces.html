@@ -2,7 +2,6 @@
 
 <div data-role="content" class="content">
 
-    
     <ul data-role="listview" data-inset="true">
         #{list items:places, as:'place'}
         <li><a href="@{Users.updateDest(place.name, place.latitude, place.longitude)}">${place.name}</a>
@@ -10,5 +9,4 @@
         #{/list}
     </ul>
     
-
 </div>
