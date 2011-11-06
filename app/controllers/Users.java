@@ -47,7 +47,10 @@ public class Users extends Application {
     }
     
     public static void fetchIncomingRequests() {
-    	List<Request> requests = Request.findIncomingByUser(connectedUser().id);
-    	renderJSON(requests);
+    	User user = connectedUser();
+    	if (user != null) {
+	    	List<Request> requests = Request.findIncomingByUser(user.id);
+	    	renderJSON(requests);
+    	}
     }
 }
