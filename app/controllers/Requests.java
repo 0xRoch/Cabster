@@ -31,7 +31,7 @@ public class Requests extends Application {
 	
     public static void markAsRead(Long id) {
     	Request req = Request.findById(id);
-    	if (req != null && connectedUser() != null && connectedUser() == req.to) {
+    	if (req != null && connectedUser() != null && connectedUser().id == req.to.id) {
     		req.opened = true;
     		req.update();
     	}
@@ -39,7 +39,7 @@ public class Requests extends Application {
     
     public static void markAsAccepted(Long id) {
     	Request req = Request.findById(id);
-    	if (req != null && connectedUser() != null && connectedUser() == req.to) {
+    	if (req != null && connectedUser() != null && connectedUser().id == req.to.id) {
     		req.accepted = true;
     		req.update();
     	}
