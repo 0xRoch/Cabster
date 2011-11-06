@@ -10,6 +10,7 @@ import play.data.validation.*;
 import com.google.gson.*;
 import play.cache.Cache;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.apache.commons.lang.WordUtils;
@@ -34,6 +35,7 @@ public class Request extends Model {
     @Join @Column("to")
     public User to;
     
+    public boolean accepted;
     public boolean opened;
     
     static Query<Request> all() {
@@ -46,6 +48,11 @@ public class Request extends Model {
     
     public static List<Request> findIncomingByUser(Long id) {
     	User user = User.findById(id);
-    	return all().filter("to", user).filter("opened", false).fetch();
+    	List<Request> toRead = all().filter("to", user).filter("opened", false).fetch();
+    	List<Request> accepted = all().filter("from", user).filter("opened", false).fetch();
+    	List<Request> res = new ArrayList<Request>();
+    	res.addAll(toRead);
+    	res.addAll(accepted);
+    	return res;
     }
 }

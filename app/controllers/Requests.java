@@ -29,5 +29,13 @@ public class Requests extends Application {
     		request.update();
     	}
     }
+    
+    public static void markAsAccepted(Long id) {
+    	Request request = Request.findById(id);
+    	if (request != null && connectedUser() != null && connectedUser() == request.to) {
+    		request.accepted = true;
+    		request.update();
+    	}
+    }
 
 }
