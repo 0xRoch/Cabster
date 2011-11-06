@@ -25,12 +25,15 @@ public class Request extends Model {
 
     @Id
     public Long id;
-    
+
+    @Required
     public Date date;
-    
+
+    @Required
     @Join @Column("from")
     public User from;
-    
+
+    @Required
     @Join @Column("to")
     public User to;
     
