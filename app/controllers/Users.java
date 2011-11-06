@@ -51,7 +51,7 @@ public class Users extends Application {
 	    	request.date = new Date();
 	    	request.insert();
     	}
-    	render();
+    	render(user);
     }
     
     public static void fetchIncomingRequests() {
