@@ -33,7 +33,7 @@ var App = {
 	});
 	newLine.setMap(map);
 	
-	App.usersNearby();
+	App.usersNearby(position.coords.latitude, position.coords.longitude);
 	App.fetchRequests();
 	
 	$.ajax({
@@ -45,20 +45,15 @@ var App = {
 	});
   },
   
-  usersNearby: function() {
-	   bds = map.getBounds();
-	   var South_Lat = bds.getSouthWest().lat();
-	   var South_Lng = bds.getSouthWest().lng();
-	   var North_Lat = bds.getNorthEast().lat();
-	   var North_Lng = bds.getNorthEast().lng();
-	   $.getJSON("/Application/usersNearby?slat="+South_Lat+"&slon="+South_Lng+"&nlat="+North_Lat+"&nlon="+North_Lng,
+  usersNearby: function(latitude, longitude) {
+	   $.getJSON("/Application/usersNearby?latitude="+latitude+"&longitude="+longitude,
 	   function(json) {
-		   var markersArray = [];
 		   $.each(json, function(i,item){
 			   if (item.id == "me") {
 				   var marker = new google.maps.Marker({
 					   position: new google.maps.LatLng(item.latitude, item.longitude), 
-					   map: map
+					   map: map,
+					   icon: "/public/images/spot.png"
 				   });
 			   } else {
 				   var marker = new google.maps.Marker({

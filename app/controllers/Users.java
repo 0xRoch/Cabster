@@ -6,10 +6,12 @@ import java.util.List;
 import controllers.Application.MD5Util;
 
 import play.cache.Cache;
+import siena.embed.EmbeddedMap;
 
 import models.Request;
 import models.User;
 
+@EmbeddedMap
 public class Users extends Application {
 
 	public static void showInfo(Long id) {

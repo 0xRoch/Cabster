@@ -34,8 +34,8 @@ public class Application extends Controller {
     	render(users);
     }
     
-    public static void usersNearby(Long South_Lat, Long South_Lng, Long North_Lat, Long North_Lng) {
-    	List<User> users = User.findByLocation(South_Lat, South_Lng, North_Lat, North_Lng);
+    public static void usersNearby(float latitude, float longitude) {
+    	List<User> users = User.findByLocation(latitude, longitude);
     	String output = "[";
     	for (User user:users) {
     		if (connectedUser() != null) {
@@ -77,5 +77,39 @@ public class Application extends Controller {
 	        }
 	        return null;
 	    }
+	}
+    
+    public static List sortByValue(Map map) {
+        List list = new LinkedList(map.entrySet());
+        Collections.sort(list, new Comparator() {
+             public int compare(Object o1, Object o2) {
+                  return ((Comparable) ((Map.Entry) (o1)).getValue()).compareTo(((Map.Entry) (o2)).getValue());
+             }
+        });
+
+       Map result = new LinkedHashMap();
+       for (Iterator it = list.iterator(); it.hasNext();) {
+           Map.Entry entry = (Map.Entry)it.next();
+           result.put(entry.getKey(), entry.getValue());
+       }
+       Collections.reverse(list);
+       return list;
+    }
+    
+    public static double distance(double lat1, double lon1, double lat2, double lon2) {
+	  double theta = lon1 - lon2;
+	  double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+	  dist = Math.acos(dist);
+	  dist = rad2deg(dist);
+	  dist = dist * 60 * 1.1515;
+	  return (dist);
+	}
+
+    public static double deg2rad(double deg) {
+	  return (deg * Math.PI / 180.0);
+	}
+
+    public static double rad2deg(double rad) {
+	  return (rad * 180.0 / Math.PI);
 	}
 }
