@@ -1,5 +1,6 @@
 #{extends 'main.html' /}
 
+<div data-role="content" class="content" data-theme="c">
 #{form @Places.listPlaces(), id:'searchPlaces', enctype:'multipart/form-data' }
 <p>
     <label for="from">Starting from</label>
@@ -20,3 +21,4 @@
     <input type="submit" value="Get a cab" />
 </p>
 #{/form}
+<div
