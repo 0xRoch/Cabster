@@ -49,7 +49,7 @@ public class Request extends Model {
     public static List<Request> findIncomingByUser(Long id) {
     	User user = User.findById(id);
     	List<Request> toRead = all().filter("to", user).filter("opened", false).fetch();
-    	List<Request> accepted = all().filter("from", user).filter("opened", false).fetch();
+    	List<Request> accepted = all().filter("from", user).filter("accepted", false).fetch();
     	List<Request> res = new ArrayList<Request>();
     	res.addAll(toRead);
     	res.addAll(accepted);
