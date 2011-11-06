@@ -153,10 +153,14 @@ public class User extends Model {
     		counter.put(user, count);
     	}
     	List sorted = Application.sortByValue(counter);//.subList(0, 10);
+    	
+    	List<User> output = new ArrayList();
     	for (Iterator it = sorted.iterator(); it.hasNext();) {
-    		
+    		Map.Entry entry = (Map.Entry)it.next();
+            entry.getKey();
+    		output.add((User) entry.getKey());
     	}
-    	return sorted;
+    	return output;
     }
     
     public static List<User> findByLocation(float latitude, float longitude) {
