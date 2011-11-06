@@ -3,5 +3,7 @@
 We have found a few guys going in the same direction !
 
 #{list items:users, as:'user'}
-		<a href="@{Users.showInfo(user.id)}">${user}</a><br>
+		#{if user.id != connected.id}
+			<a href="@{Users.showInfo(user.id)}">${user}</a><br>
+		#{/if}
 #{/list}

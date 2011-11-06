@@ -149,7 +149,6 @@ public class User extends Model {
     	Map<User, Double> counter = new HashMap<User, Double>();
     	for(User user:users) {
     		double count = Application.distance(latitude, longitude, user.latitude, user.longitude);
-    		System.out.print(count);
     		counter.put(user, count);
     	}
     	List sorted = Application.sortByValue(counter);//.subList(0, 10);
@@ -172,7 +171,6 @@ public class User extends Model {
     	Map<User, Double> counter = new HashMap<User, Double>();
     	for(User user:users) {
     		double count = Application.distance(latitude, longitude, user.latitude, user.longitude);
-    		System.out.print(count);
     		counter.put(user, count);
     	}
     	List sorted = Application.sortByValue(counter);//.subList(0, 10);
