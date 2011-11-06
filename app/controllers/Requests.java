@@ -18,6 +18,7 @@ public class Requests extends Application {
 			if (req.opened == false) {
 				req.opened = true;
 			} else {
+				req.archived = true;
 				validationPage = 2;
 			}
 			req.update();

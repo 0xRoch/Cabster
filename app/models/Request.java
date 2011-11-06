@@ -38,6 +38,7 @@ public class Request extends Model {
     @Join @Column("to")
     public User to;
     
+    public boolean archived;
     public boolean accepted;
     public boolean opened;
     
@@ -51,8 +52,8 @@ public class Request extends Model {
     
     public static List<Request> findIncomingByUser(Long id) {
     	User user = User.findById(id);
-    	List<Request> toRead = all().filter("to", user).filter("opened", false).filter("accepted", false).fetch();
-    	List<Request> accepted = all().filter("from", user).filter("opened", true).filter("accepted", false).fetch();
+    	List<Request> toRead = all().filter("to", user).filter("opened", false).filter("accepted", false).filter("archived", false).fetch();
+    	List<Request> accepted = all().filter("from", user).filter("opened", true).filter("accepted", true).filter("archived", false).fetch();
     	List<Request> res = new ArrayList<Request>();
     	res.addAll(toRead);
     	res.addAll(accepted);
