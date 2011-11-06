@@ -6,6 +6,7 @@ import play.mvc.*;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 import java.util.*;
 
 import models.*;
@@ -56,6 +57,10 @@ public class Application extends Controller {
         return userId == null ? null : (User) User.findById(Long.parseLong(userId));
     }
 
+    public static double roundTwoDecimals(double d) {
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return Double.valueOf(twoDForm.format(d));
+    }
     
     public static class MD5Util {    
 	    public static String hex(byte[] array) {

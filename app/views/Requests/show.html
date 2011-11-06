@@ -1,7 +1,16 @@
 #{extends 'main.html' /}
 
+#{if request.accepted == false}
 You have received a request !
 
 ${from} would like to share a taxi with you !<br>
 
 #{if leavingWhen =! null}${from} will be leaving at ${leavingWhen}#{/if} #{if leavingFrom =! null}${from} from ${leavingFrom}#{/if}
+
+<a href="@{Requests.markAsAccepted(request.id)}">Accept it !</a><br>
+
+#{/if}
+
+#{if request.accepted == true}
+Your request has been accepted
+#{/if}

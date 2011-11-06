@@ -16,7 +16,8 @@ public class Users extends Application {
 
 	public static void showInfo(Long id) {
 		User user = User.findById(id);
-		render(user);
+		double distance = Application.roundTwoDecimals(distance(user.latitude, user.longitude, connectedUser().latitude, connectedUser().longitude));
+		render(user, distance);
 	}
 	
 	public static void updateDest(String destination, String latitude, String longitude) {
@@ -50,7 +51,7 @@ public class Users extends Application {
 	    	request.date = new Date();
 	    	request.insert();
     	}
-    	render();
+    	render(user);
     }
     
     public static void fetchIncomingRequests() {
