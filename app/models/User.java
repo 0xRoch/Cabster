@@ -42,15 +42,12 @@ public class User extends Model {
     @EmbedIgnore
     public String needConfirmation;
 
-    public String location;
     public float latitude;
     public float longitude;
     public Date lastSeen;
     
-    public String destination;
     public float destination_lat;
     public float destination_lon;
-    public Date preferredTime;
     
     @EmbedIgnore @Filter("from")
     public Query<Request> outgoing_requests;
@@ -88,6 +85,14 @@ public class User extends Model {
     public String fullName() {
         return WordUtils.capitalize(this.name);
     }
+    
+    public String preferredTime() {
+    	return (String) Cache.get("preferredTime::" + this.id);
+    }
+    
+    public String getDestination() {
+    	return (String) Cache.get("destination::" + this.id);
+    }
 
     @Override
     public String toString() {
@@ -96,6 +101,12 @@ public class User extends Model {
         } else {
             return fullName();
         }
+    }
+    
+    public String getAvatar() {
+    	String hash = MD5Util.md5Hex(this.email);
+    	String url = "http://www.gravatar.com/avatar/";
+    	return url+hash;
     }
     // ~~~~~~~~~~~~ 
     
@@ -124,7 +135,7 @@ public class User extends Model {
     }
     
     public static List<User> findByDestination(float latitude, float longitude) {
-    	//List<User> users = all().filter("latitude", latitude).filter("latitude", longitude).fetch();
+    	//List<User> users = all().filter("destination_lat", latitude).filter("destination_lat", longitude).fetch();
     	List<User> users = all().fetch();
     	return users;
     }
@@ -136,9 +147,8 @@ public class User extends Model {
     	cal.setTime(new Date());
     	cal.add(Calendar.DAY_OF_YEAR,-1);
     	Date oneDayBefore= cal.getTime();
-    	System.out.print(oneDayBefore);
-    	//List<User> users = all().filter("lastSeen>", oneDayBefore).fetch();
-    	List<User> users = all().fetch();
+    	//System.out.print(oneDayBefore);
+    	List<User> users = all().filter("lastSeen>", oneDayBefore).fetch();
     	return users;
     }
 

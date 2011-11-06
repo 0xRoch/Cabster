@@ -2,11 +2,11 @@
 
 <ul data-role="listview" data-split-icon="gear" data-inset="true">
     <li><a href="@{Users.sendRequest(user.id)}">
-            <img src="images/avatar.jpg" />
+            <img src="${user.getAvatar()}" />
             <h3>${user}</h3>
-            <p>From <b>${location}</b></p>
-            <p>To <b>${destination}</b></p>
-            <p>In <b>${preferredTime} minutes</b></p>
+            #{if location}<p>From <b>${location}</b></p>#{/if}
+            #{if user.getDestination()}<p>To <b>${user.getDestination()}</b></p>#{/if}
+            #{if user.preferredTime()}<p>In <b>${preferredTime} minutes</b></p>#{/if}
         </a>
         <a href="lists-split-purchase.html">View in map</a>
     </li>

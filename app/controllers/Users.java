@@ -3,6 +3,10 @@ package controllers;
 import java.util.Date;
 import java.util.List;
 
+import controllers.Application.MD5Util;
+
+import play.cache.Cache;
+
 import models.Request;
 import models.User;
 
@@ -16,7 +20,7 @@ public class Users extends Application {
 	public static void updateDest(String destination, String latitude, String longitude) {
     	User user = Application.connectedUser();
     	if (user != null) {
-    		user.destination = destination;
+    		Cache.set("destination::"+user.id, destination, "30mn");
     		user.destination_lat = Float.valueOf(latitude);
     		user.destination_lon = Float.valueOf(longitude);
     		user.lastSeen = new Date();
@@ -44,6 +48,7 @@ public class Users extends Application {
 	    	request.date = new Date();
 	    	request.insert();
     	}
+    	render();
     }
     
     public static void fetchIncomingRequests() {
