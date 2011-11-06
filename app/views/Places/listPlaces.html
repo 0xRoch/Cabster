@@ -1,7 +1,14 @@
 #{extends 'main.html' /}
 
-Tell us where you want to go ! <br>
+<div data-role="content" class="content">
 
-#{list items:places, as:'place'}
-	<a href="@{Users.updateDest(place.name, place.latitude, place.longitude)}">${place.name}</a>
-#{/list}
+    
+    <ul data-role="listview" data-inset="true">
+        #{list items:places, as:'place'}
+        <li><a href="@{Users.updateDest(place.name, place.latitude, place.longitude)}">${place.name}</a>
+        </li>
+        #{/list}
+    </ul>
+    
+
+</div>
