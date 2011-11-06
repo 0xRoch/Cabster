@@ -26,18 +26,18 @@ google.maps.Marker.prototype.setMap = function(map) {
 </script>
 
 <div data-role="content" class="content-with-footer">
-    <div id="map_canvas"></div>
+        <div id="map_canvas"></div>
 </div>
 
 
-<div data-role="footer" class="nav-glyphish-example">
+<div data-role="footer" class="footer">
     <div data-role="navbar" class="nav-glyphish-example">
         <ul>
                     	#{if connected == null}
             <li><a href="@{Application.login()}" id="calendar" data-rel="dialog" data-icon="custom">Login</a></li>
             #{/if}
             #{else}
-            <li><a href="@{Application.shareACab()}" id="calendar" data-rel="dialog" data-icon="custom" >Share a cab</a></li>
+            <li><a href="@{Application.shareACab()}" id="calendar" data-icon="custom" >Share a cab</a></li>
             #{/else}
         </ul>
     </div><!-- /navbar -->
