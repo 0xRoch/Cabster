@@ -47,7 +47,9 @@ public class Users extends Application {
 	    	request.to = user;
 	    	request.date = new Date();
 	    	request.insert();
+	    	flash.success("Thanks, your notification has been sent !");
     	}
+    	Application.index();
     }
     
     public static void fetchIncomingRequests() {

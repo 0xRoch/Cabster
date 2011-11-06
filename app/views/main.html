@@ -27,6 +27,12 @@
             </div>
 
             <div data-role="content">
+            	#{if flash.error}
+			        <div class="error">${flash.error}</div>
+			    #{/if}
+			    #{if flash.success}
+			        <div class="success">${flash.success}</div>
+			    #{/if}
                 #{doLayout /}
             </div>
 
