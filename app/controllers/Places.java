@@ -11,6 +11,8 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
+import play.cache.Cache;
+
 import models.Place;
 import models.User;
 import net.sf.json.JSONArray;
@@ -21,9 +23,12 @@ import sun.net.www.URLConnection;
 
 public class Places extends Application {
 	
-	public static void listPlaces(String to) throws IOException {
+	public static void listPlaces(String from, String to, String when) throws IOException {
 		
 		User user = Application.connectedUser();
+		
+		Cache.set("leavingWhen::"+user.id, when, "30mn");
+		Cache.set("leavingFrom::"+user.id, from, "30mn");
 		
 		URL url = new URL("https://maps.googleapis.com/maps/api/place/search/json?location="+user.latitude+","+user.longitude+"&radius=5000&types=food&name="+to+"&sensor=false&key=AIzaSyA9wDnQVhOadohykQVfbRYh_9i3Y7dgFwk");
 

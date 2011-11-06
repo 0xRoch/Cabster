@@ -28,10 +28,10 @@ public class Request extends Model {
     
     public Date date;
     
-    @Column("from")
+    @Join @Column("from")
     public User from;
     
-    @Column("to")
+    @Join @Column("to")
     public User to;
     
     public boolean opened;

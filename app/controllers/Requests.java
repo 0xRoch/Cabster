@@ -3,6 +3,8 @@ package controllers;
 import java.util.Date;
 import java.util.List;
 
+import play.cache.Cache;
+
 import models.Request;
 import models.User;
 
@@ -13,7 +15,10 @@ public class Requests extends Application {
 		if (connectedUser().id == request.to.id) {
 			request.opened = true;
 			request.update();
-			render(request);
+			User from = request.from;
+			String leavingWhen = (String) Cache.get("leavingWhen::"+from.id);
+			String leavingFrom = (String) Cache.get("leavingFrom::"+from.id);
+			render(request, from, leavingWhen, leavingFrom);
 		}
 	}
 	

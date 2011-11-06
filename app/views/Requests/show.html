@@ -1,3 +1,7 @@
 #{extends 'main.html' /}
 
 You have received a request !
+
+${from} would like to share a taxi with you !<br>
+
+#{if leavingWhen =! null}${from} will be leaving at ${leavingWhen}#{/if} #{if leavingFrom =! null}${from} from ${leavingFrom}#{/if}
