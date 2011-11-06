@@ -85,7 +85,7 @@ var App = {
 	  $.getJSON("/Users/fetchIncomingRequests",
 		   function(json) {
 			   $.each(json, function(i,item){
-				   //$.mobile.changePage("/Requests/show?id="+item.id)
+				   $.mobile.changePage("/Requests/show?id="+item.id)
 			   });
 			});
   }

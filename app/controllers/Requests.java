@@ -10,7 +10,7 @@ public class Requests extends Application {
 
 	public static void show(Long id) {
 		Request request = Request.findById(id);
-		if (connectedUser() == request.to) {
+		if (connectedUser().id == request.to.id) {
 			request.opened = true;
 			request.update();
 			render(request);
