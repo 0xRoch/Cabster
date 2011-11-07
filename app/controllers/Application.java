@@ -106,7 +106,7 @@ public class Application extends Controller {
 	  double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
 	  dist = Math.acos(dist);
 	  dist = rad2deg(dist);
-	  dist = dist * 60 * 1.1515;
+	  dist = dist * 60 * 0.7155;
 	  return (dist);
 	}
 
