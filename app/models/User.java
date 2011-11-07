@@ -101,7 +101,7 @@ public class User extends Model {
         if(this.twitter != null) {
             return this.twitter;
         } else {
-            return this.email;
+            return "Anonymous #"+1;
         }
     }
     
