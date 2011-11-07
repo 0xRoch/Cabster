@@ -87,10 +87,6 @@ public class User extends Model {
             this.needConfirmation = Codec.UUID();
     	}
     }
-
-    public String fullName() {
-        return WordUtils.capitalize(this.name);
-    }
     
     public String preferredTime() {
     	return (String) Cache.get("preferredTime::" + this.id);
@@ -105,7 +101,7 @@ public class User extends Model {
         if(this.twitter != null) {
             return this.twitter;
         } else {
-            return fullName();
+            return this.email;
         }
     }
     
