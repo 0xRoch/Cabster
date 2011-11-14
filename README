@@ -1,3 +1,12 @@
 Cabster is a mobile web-application you can use to find people around you and share a taxi with them. It was done during #hackdayparis 2011
 
 The demo is available @ http://cabster-app.appspot.com
+
+It's using :
+- Playframework
+- Sienaproject
+- JQuery Mobile
+- Google App Engine
+- Google MAP API V3
+- Google Places API
+- Json-lib
